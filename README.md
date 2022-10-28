@@ -3,10 +3,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   **Deployment Date:**  10/28/22 <br>
+
   **Deployed Link:** https://note-taker-sthoorens.herokuapp.com<br>
   
   **Technologies used:**  Node.js, JavaScript, Express.js, nodemon, Heroku<br>
-  **Project goal:**  Create server code correctly to save and retrieve note data from a JSON file and deploy a functioning note-taking app. <br>
+
+  **Project goal:**  Create server code to save and retrieve note data from a JSON file and deploy a functioning note-taking app. <br>
 
 
   ## Table of Contents

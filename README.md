@@ -2,17 +2,19 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-  **Deployment Date:**  10/28/22
+  **Deployment Date:**  10/28/22 <br>
+  **Deployed Link:** https://note-taker-sthoorens.herokuapp.com<br>
   
   **WALK-THROUGH CAN BE FOUND HERE:** <br>
   
   **Technologies used:**  Node.js, JavaScript, Express.js, nodemon, Heroku<br>
-  **Project goal:**  Complete server code correctly to save and retrieve note data from a JSON file and deploy a functioning note-taking app. <br>
+  **Project goal:**  Create server code correctly to save and retrieve note data from a JSON file and deploy a functioning note-taking app. <br>
 
 
   ## Table of Contents
   1. [Project Description](#Description)
   2. [Usage](#Usage)
+  3. [Images](#Deployed_Images)
   3. [Challenges Encounted](#Challenges)
   4. [Tests](#Tests)
   5. [License](#License)
@@ -20,9 +22,9 @@
   
   ## Description
 
-This project required coding an Express.js back-end to complete pre-written front-end code for a note-taking application. 
+This project required coding an Express.js back-end to complete pre-written front-end code for a note-taking application. User enters new note tile and text content, saves the note to a list that populates on the page and can be deleted and removed from the list when the trash icon is clicked.
 
-The information provided:
+The information provided for this challenge:
 
 ## User Story
 
@@ -55,6 +57,12 @@ THEN I am presented with empty fields to enter a new note title and the note’s
  
   This app can be viewed and used from this link: 
  https://note-taker-sthoorens.herokuapp.com/
+
+## Deployed Images
+
+  ![shows empty list on left and new note being written](./Assets/empty_list.png)
+
+ ![shows new item populated in list on left](./Assets/added_to_list.png)
 
   ## Challenges
  

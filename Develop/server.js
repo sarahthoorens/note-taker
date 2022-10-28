@@ -88,44 +88,21 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
-// Delete notes - this code works on occasion - needs debugging
+// Delete notes from notelist and update db.json
 app.delete('/api/notes/:id', (req, res) => {
       console.info(`${req.method} request received to delete note.`);
-      for (let i = 0; i < db.length; i++) {
-        let currentNote = db[i];
-        console.log(currentNote);
-        if (currentNote.id === req.params.id) {
-          let newList = db.splice([i],1);
-          res.status(200).json(`The note has been deleted`);
-          console.log(db);
-          fs.writeFile('./db/db.json', JSON.stringify(newList), (err) =>
-          err ? console.error(err) : console.log('Note list has been updated.')
+      const currentNote = db.findIndex(({ id }) => id === req.params.id);
+      if (currentNote >= 0) {
+      db.splice(currentNote, 1);
+      res.status(200).json(`The note has been deleted`);
+  } else {
+    res.status(500).json('Note could not be deleted.')
+      }
+      fs.writeFile('./db/db.json', JSON.stringify(db), (err) =>
+      err ? console.error(err) : console.log('Note list has been updated.')
           )}
-      } 
-    });
+); 
 
     app.listen(PORT, () =>
       console.log(`Express server listening on port http://localhost:${PORT}`)
     );
-
-    // this code needs debugging
-    // app.delete('/api/notes/:id', (req, res) => {
-    //   //   fs.readFile('./db/db.json', 'utf8', (err, data) => {
-      //     if (err) {
-      //       console.error(err);
-      //     } else {
-      //       const allNotes = JSON.parse(data);
-      //      for (let i = 0; i < allNotes.length; i++) {
-      //         console.log(allNotes);
-      //           if (allNotes.id === req.params.id) {
-      //             allNotes.splice([i], 1);
-      //             fs.writeFile('./db/db.json', JSON.stringify(allNotes), (err) =>
-      //             err ? console.error(err) : console.log('Note list has been updated.'));
-      //             res.status(201).json('Note list updated.');
-      //       }
-      //           else {
-      //             console.log('Unable to delete the note.')
-      //             break
-      //       }
-      //       }} 
-      // })});

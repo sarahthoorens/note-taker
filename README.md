@@ -1,10 +1,6 @@
 # note-taker
 
-
-  # CLI-generated README 
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 
   **Deployment Date:**  10/28/22
   

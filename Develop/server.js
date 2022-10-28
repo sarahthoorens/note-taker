@@ -17,8 +17,13 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });
+// `GET /notes` returns the `notes.html` file.
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/notes.html'));
+});
 
-// `GET /notes` reads the `db.json` file and returns all saved notes as JSON.
+
+// `GET /api/notes` reads the `db.json` file and returns all saved notes as JSON.
 app.get('/api/notes', (req, res) => {
   console.log('is this working?')
   console.info(`${req.method} request received.`);
@@ -27,18 +32,12 @@ app.get('/api/notes', (req, res) => {
       if (err) {
         console.error(err);
       } else {    
-           
-               // Add a new review
-               return res.status(200).json(data);
-      
-    }   
+        const allNotes=JSON.parse(data);
+        res.json(allNotes);
+      }   
     })
   });
 
-// `GET /notes` returns the `notes.html` file.
-app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/notes.html'));
-});
 
 // `POST /api/notes` should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client. You'll need to find a way to give each note a unique id when it's saved (look into npm packages that could do this for you).
 app.post('/api/notes', (req, res) => {
@@ -56,25 +55,24 @@ app.post('/api/notes', (req, res) => {
       id: uuid(),
     };
     // Obtain existing notes
-       fs.readFile('./db/db.json', 'utf8', (err, data) => {
+       fs.readFile('./db/db.json', 'utf8', (err, note) => {
           if (err) {
             console.error(err);
           } else {
-    // Convert string into JSON object
-    const parsedNote= JSON.parse(data);
-
-    // Add a new review
-    parsedNote.push(newNote);
+          const parsedNotes = JSON.parse(note);
+          parsedNotes.push(newNote)
+          
 
               // Write updated note back to the file
-          fs.writeFile('./db/db.json',JSON.stringify(parsedNote, null, 4),
+          fs.writeFile('./db/db.json',JSON.stringify(parsedNotes, null, 4),
           (writeErr) => writeErr ? console.error(writeErr)
-          : console.info('Successfully added new note!'));
+          : console.info('Successfully added new note!')
+          );
         }
       });
           const response = {
               status: 'success',
-              body: newNote
+              body: newNote,
     };
     console.log(response);
     res.status(201).json(response);
@@ -88,7 +86,6 @@ app.post('/api/notes', (req, res) => {
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });
-
 
   app.listen(PORT, () =>
   console.log(`Express server listening on port http://localhost:${PORT}`)

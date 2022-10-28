@@ -3,3 +3,9 @@
         "title": "Test Title",
         "text": "Test text"
     },
+    {
+        "title": "This is a new note",
+        "text": "This is the text of the new note",
+        "id": "456cdce8-c377-41b3-83e9-9d2d176d829c"
+    }
+]

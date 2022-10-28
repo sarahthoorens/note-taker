@@ -1,1 +1,5 @@
-[]
+[ {
+    title: "Note title",
+    text: "This is the note's text."
+}
+]

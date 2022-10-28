@@ -5,8 +5,6 @@
   **Deployment Date:**  10/28/22 <br>
   **Deployed Link:** https://note-taker-sthoorens.herokuapp.com<br>
   
-  **WALK-THROUGH CAN BE FOUND HERE:** <br>
-  
   **Technologies used:**  Node.js, JavaScript, Express.js, nodemon, Heroku<br>
   **Project goal:**  Create server code correctly to save and retrieve note data from a JSON file and deploy a functioning note-taking app. <br>
 
@@ -14,7 +12,6 @@
   ## Table of Contents
   1. [Project Description](#Description)
   2. [Usage](#Usage)
-  3. [Images](#Deployed_Images)
   3. [Challenges Encounted](#Challenges)
   4. [Tests](#Tests)
   5. [License](#License)
@@ -58,10 +55,12 @@ THEN I am presented with empty fields to enter a new note title and the note’s
   This app can be viewed and used from this link: 
  https://note-taker-sthoorens.herokuapp.com/
 
-## Deployed Images
+## Deployed Screenshots
 
+_<p align="center">With empty list on initial window load.</p>_
   ![shows empty list on left and new note being written](./Assets/empty_list.png)
 
+_<p align="center">With populated list after note saved.</p>_
  ![shows new item populated in list on left](./Assets/added_to_list.png)
 
   ## Challenges

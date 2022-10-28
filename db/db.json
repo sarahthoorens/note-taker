@@ -1,5 +1,7 @@
-[ {
-    title: "Note title",
-    text: "This is the note's text."
-}
+[
+    {
+        "title": "note title",
+        "text": "this is the note's text",
+        "id": "7c3adc9c-e4f4-4362-b617-cf0741e39645"
+    }
 ]
